@@ -1,14 +1,182 @@
 <html>
     <head>
         <title>Bulk Mail Sample Project</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
         <link rel="stylesheet" href="styles/base.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="scripts/listContacts.js"></script>
+        <script src="https://use.fontawesome.com/35c8f9e615.js"></script>
     </head>
     <body>
-        <div id="wrapper" class="row full-height">
-            <div id="list-contacts" class="col s12 m5 l4 full-height">List Contacts</div>
-            <div id="list-messages" class="col s12 m7 l8 full-height">List Messages</div>
+        <div id="wrapper" class="row">
+            <div id="ctrls-wrapper" class="row">
+                <div class="col s6 active hide-on-med-and-up" data-show="list-contacts">Contacts</div>
+                <div class="col s6 hide-on-med-and-up" data-show="list-messages">Messages</div>
+            </div>
+            <div id="list-contacts" class="col s12 main-block active">
+                <div id="add-contact">
+                    <a href="javascript:void(0)">Add Contact</a>
+                    <form class="row">
+                        <div class="input-block col s6">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" />
+                        </div>
+                        <div class="input-block col s6">
+                            <label for="fname">Last Name</label>
+                            <input type="text" id="fname" />
+                        </div>
+                        <div class="input-block col s12">
+                            <label for="fname">Contact Number</label>
+                            <input type="tel" id="fname" />
+                        </div>
+                        <div class="add-ctrls">
+                            <a href="javascript:void(0)" id="save-contact"><i class="fa fa-check"></i></a>
+                            <a href="javascript:void(0)" id="cancel-contact"><i class="fa fa-times"></i></a>
+                        </div>
+                    </form>
+                </div>
+                <ul>
+                    <li>
+                        <div class="visible-contact clearfix">
+                            <div>
+                                <span class="name-contact">
+                                    <i class="fa fa-user"></i>
+                                    <span>Ankush Jamdagani</span>
+                                </span>
+                                <span class="view-contact">
+                                    <i class="fa fa-sort-desc"></i>
+                                    <span>View</span>
+                                </span>
+                            </div>
+                            <div class="delete-contact">
+                                <span><i class="fa fa-times"></i></span>
+                            </div>
+                        </div>
+                        <div class="hidden-contact">
+                            <div>
+                                <i class="fa fa-phone"></i>
+                                <span class="country-code">+91</span>
+                                <span class="phone-num">9466462396</span>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="send-msg"><i class="fa fa-envelope"></i> Send Message</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="visible-contact clearfix">
+                            <div>
+                                <span class="name-contact">
+                                    <i class="fa fa-user"></i>
+                                    <span>Ankush Jamdagani</span>
+                                </span>
+                                <span class="view-contact">
+                                    <i class="fa fa-sort-desc"></i>
+                                    <span>View</span>
+                                </span>
+                            </div>
+                            <div class="delete-contact">
+                                <span><i class="fa fa-times"></i></span>
+                            </div>
+                        </div>
+                        <div class="hidden-contact">
+                            <div>
+                                <i class="fa fa-phone"></i>
+                                <span class="country-code">+91</span>
+                                <span class="phone-num">9466462396</span>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="send-msg">Send Message</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="visible-contact clearfix">
+                            <div>
+                                <span class="name-contact">
+                                    <i class="fa fa-user"></i>
+                                    <span>Ankush Jamdagani</span>
+                                </span>
+                                <span class="view-contact">
+                                    <i class="fa fa-sort-desc"></i>
+                                    <span>View</span>
+                                </span>
+                            </div>
+                            <div class="delete-contact">
+                                <span><i class="fa fa-times"></i></span>
+                            </div>
+                        </div>
+                        <div class="hidden-contact">
+                            <div>
+                                <i class="fa fa-phone"></i>
+                                <span class="country-code">+91</span>
+                                <span class="phone-num">9466462396</span>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="send-msg">Send Message</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="list-messages" class="col s12 main-block">
+                <div>
+                    <ul class="clearfix">
+                        <li class="msg-card">
+                            <div class="msg-header">
+                                <i class="fa fa-user"></i>
+                                <span>Ankush Jamdagani</span>
+                            </div>
+                            <div class="msg-body">
+                                OTP sent to 872398230
+                            </div>
+                            <div class="msg-time">
+                                <i class="fa fa-clock"></i>
+                                <span>5th Sept 2017 :: 09:30 pm</span>
+                            </div>
+                        </li>
+                        <li class="msg-card">
+                            <div class="msg-header">
+                                <i class="fa fa-user"></i>
+                                <span>Ankush Jamdagani</span>
+                            </div>
+                            <div class="msg-body">
+                                OTP sent to 872398230
+                            </div>
+                            <div class="msg-time">
+                                <i class="fa fa-clock"></i>
+                                <span>5th Sept 2017 :: 09:30 pm</span>
+                            </div>
+                        </li>
+                        <li class="msg-card">
+                            <div class="msg-header">
+                                <i class="fa fa-user"></i>
+                                <span>Ankush Jamdagani</span>
+                            </div>
+                            <div class="msg-body">
+                                OTP sent to 872398230
+                            </div>
+                            <div class="msg-time">
+                                <i class="fa fa-clock"></i>
+                                <span>5th Sept 2017 :: 09:30 pm</span>
+                            </div>
+                        </li>
+                        <li class="msg-card">
+                            <div class="msg-header">
+                                <i class="fa fa-user"></i>
+                                <span>Ankush Jamdagani</span>
+                            </div>
+                            <div class="msg-body">
+                                OTP sent to 872398230
+                            </div>
+                            <div class="msg-time">
+                                <i class="fa fa-clock"></i>
+                                <span>5th Sept 2017 :: 09:30 pm</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
 </html>
