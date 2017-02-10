@@ -16,18 +16,19 @@
             <div id="list-contacts" class="col s12 main-block active">
                 <div id="add-contact">
                     <a href="javascript:void(0)">Add Contact</a>
-                    <form class="row">
+                    <form id="add-contact-form" class="row">
                         <div class="input-block col s6">
                             <label for="fname">First Name</label>
-                            <input type="text" id="fname" />
+                            <input type="text" id="fname" data-pattern="^[a-zA-Z0-9_-]{3,16}$" />
                         </div>
                         <div class="input-block col s6">
                             <label for="fname">Last Name</label>
-                            <input type="text" id="fname" />
+                            <input type="text" id="lname"  data-pattern="^[a-zA-Z0-9_-]{3,16}$"/>
                         </div>
                         <div class="input-block col s12">
                             <label for="fname">Contact Number</label>
-                            <input type="tel" id="fname" />
+                             + <input type="tel" id="ccode" data-pattern="\d{2}" maxlength="2">
+                             - <input type="tel" id="cnum" data-pattern="\d{3,20}" maxlength="10"/>
                         </div>
                         <div class="add-ctrls">
                             <a href="javascript:void(0)" id="save-contact"><i class="fa fa-check"></i></a>
@@ -35,94 +36,15 @@
                         </div>
                     </form>
                 </div>
+                <div class="msg-box">No contacts to list!!</div>
                 <ul>
-                    <li>
-                        <div class="visible-contact clearfix">
-                            <div>
-                                <span class="name-contact">
-                                    <i class="fa fa-user"></i>
-                                    <span>Ankush Jamdagani</span>
-                                </span>
-                                <span class="view-contact">
-                                    <i class="fa fa-sort-desc"></i>
-                                    <span>View</span>
-                                </span>
-                            </div>
-                            <div class="delete-contact">
-                                <span><i class="fa fa-times"></i></span>
-                            </div>
-                        </div>
-                        <div class="hidden-contact">
-                            <div>
-                                <i class="fa fa-phone"></i>
-                                <span class="country-code">+91</span>
-                                <span class="phone-num">9466462396</span>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0)" class="send-msg"><i class="fa fa-envelope"></i> Send Message</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="visible-contact clearfix">
-                            <div>
-                                <span class="name-contact">
-                                    <i class="fa fa-user"></i>
-                                    <span>Ankush Jamdagani</span>
-                                </span>
-                                <span class="view-contact">
-                                    <i class="fa fa-sort-desc"></i>
-                                    <span>View</span>
-                                </span>
-                            </div>
-                            <div class="delete-contact">
-                                <span><i class="fa fa-times"></i></span>
-                            </div>
-                        </div>
-                        <div class="hidden-contact">
-                            <div>
-                                <i class="fa fa-phone"></i>
-                                <span class="country-code">+91</span>
-                                <span class="phone-num">9466462396</span>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0)" class="send-msg">Send Message</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="visible-contact clearfix">
-                            <div>
-                                <span class="name-contact">
-                                    <i class="fa fa-user"></i>
-                                    <span>Ankush Jamdagani</span>
-                                </span>
-                                <span class="view-contact">
-                                    <i class="fa fa-sort-desc"></i>
-                                    <span>View</span>
-                                </span>
-                            </div>
-                            <div class="delete-contact">
-                                <span><i class="fa fa-times"></i></span>
-                            </div>
-                        </div>
-                        <div class="hidden-contact">
-                            <div>
-                                <i class="fa fa-phone"></i>
-                                <span class="country-code">+91</span>
-                                <span class="phone-num">9466462396</span>
-                            </div>
-                            <div>
-                                <a href="javascript:void(0)" class="send-msg">Send Message</a>
-                            </div>
-                        </div>
-                    </li>
+                    
                 </ul>
             </div>
             <div id="list-messages" class="col s12 main-block">
                 <div>
                     <ul class="clearfix">
-                        <li class="msg-card">
+                        <!--<li class="msg-card">
                             <div class="msg-header">
                                 <i class="fa fa-user"></i>
                                 <span>Ankush Jamdagani</span>
@@ -173,7 +95,7 @@
                                 <i class="fa fa-clock"></i>
                                 <span>5th Sept 2017 :: 09:30 pm</span>
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </div>

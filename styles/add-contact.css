@@ -1,0 +1,92 @@
+
+#add-contact {
+    text-align: right;
+}
+
+#add-contact a {
+    background: #0089ff;
+    color: white;
+    padding: .25em 1em;
+    border-radius: 2px;
+    font-size: 1em;
+}
+
+#add-contact form {
+    animation: scale-in .25s linear;
+    background: #fdfdfd;
+    box-shadow: 0 0 10px #fdfdfd;
+    border: solid 1px #efefef;
+    border-radius: 3px;
+    display: none;
+    margin: 1em 0;
+    padding: 1em;
+    position: relative;
+    text-align: left;
+}
+
+#add-contact form.active {
+    display: block;
+}
+
+#add-contact form:after {
+    border: solid 10px transparent;
+    border-bottom-color: #efefef;
+    position: absolute;
+    right: 0.5em;
+    top: -1.5em;
+    width: 0;
+    height: 0;
+    display: block;
+    content: '';
+}
+
+#add-contact .input-block {
+    margin-bottom: 1em;
+}
+
+#add-contact .row input {
+    margin: 0;
+    line-height: 2em;
+    height: 2em;
+    /* background: #fefefe; */
+    border-bottom: solid 1px #efefef;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#add-contact .row label {
+    padding: .5em 0;
+    display: block;
+}
+
+#add-contact .add-ctrls {
+    font-size: .75em;
+    padding: 0 .75em;
+    text-align: right;
+}
+
+#ccode {
+    text-align: center;
+    width: 40px;
+}
+
+#cnum {
+    width: calc(100% - 80px);
+}
+
+#add-contact #save-contact {
+    background: #40e26b;
+}
+
+#add-contact #save-contact:hover {
+    background: #2ebd54;
+}
+
+#add-contact #cancel-contact {
+    background: #ff3b00;
+}
+
+#add-contact #cancel-contact:hover {
+    background: #e23703;
+}
+

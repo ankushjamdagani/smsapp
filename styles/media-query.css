@@ -1,0 +1,22 @@
+
+@media screen and (min-width: 601px) {
+    .main-block {
+        display: block !important;
+    }
+
+    #list-contacts {
+        width: 300px;
+    }
+
+    #list-messages {
+        /*margin-left: 20px;*/
+        width: calc(100% - 320px);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    li.msg-card {
+        margin: 1em;
+        width: calc(50% - 2em);
+    }
+}
