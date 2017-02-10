@@ -1,0 +1,56 @@
+#send-message {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.63);
+    text-align: center;
+}
+
+#send-message > div {
+    position: absolute;
+    text-align: right;
+    margin: 0 auto;
+    max-width: 600px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    background: white;
+    transition: all 1s linear;
+}
+
+#send-message .close {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 0 0.5em;
+}
+
+#send-message .close:hover {
+    background: #eaeaea;
+}
+
+#send-message textarea {
+    display: block;
+    height: 200px;
+    box-shadow: inset 0 0 30px #e6e6e6;
+    outline: none;
+    border: none;
+    padding: 1em;
+    letter-spacing: 1px;
+    color: #484848;
+}
+
+#send-message a {
+    color: white;
+    background: #40e26b;
+    border-radius: 3px;
+    padding: .5em 2em;
+    margin: 1em 0 0;
+}
+
+#send-message a:hover {
+    background: #2ebd54;
+}

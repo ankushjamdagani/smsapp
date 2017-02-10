@@ -5,7 +5,7 @@
 }
 
 li.msg-card {
-    animation: fade-in 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation: scale-in .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     /*border: solid 1px #efefef;*/
     box-shadow: 0 0 0 #eaeaea;
     width: 100%;

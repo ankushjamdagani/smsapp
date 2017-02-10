@@ -1,6 +1,7 @@
 @import url("list-contacts.css");
 @import url("list-messages.css");
 @import url("add-contact.css");
+@import url("send-message.css");
 @import url("animation.css");
 @import url("media-query.css");
 
@@ -52,6 +53,7 @@ i {
     padding: 2em 1em;
     color: #999;
     letter-spacing: 1px;
+    text-align: right;
 }
 
 .main-block.active {

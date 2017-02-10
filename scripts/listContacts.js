@@ -73,16 +73,16 @@
 //         }
 //     ];
 
-    var messages = 
-    [
-        {
-            phone: '9466462396',
-            countryCode: '+91',
-            message: 'This is some demo text',
-            full_name: 'Hemant Yadav',
-            time: 44443,
-        },
-    ];
+    // var messages = 
+    // [
+    //     {
+    //         phone: '9466462396',
+    //         countryCode: '+91',
+    //         message: 'This is some demo text',
+    //         full_name: 'Hemant Yadav',
+    //         time: 44443,
+    //     },
+    // ];
 
     $(document).ready(function () {
 
@@ -104,6 +104,99 @@
 
         _.tabMainBLock();
 
+
+        var Messages = (function () {
+            var messages = [];
+            return {
+                listMessage : function () {
+                    $('#list-messages .msg-box').show();
+                    
+                    messages = JSON.parse(localStorage.getItem('messages'));
+                    
+                    if(!messages || messages == null || messages.length === 0) {
+                        messages = [];
+                    }
+                    else {
+                        messages.forEach(function(message) {
+                            Messages.appendMessage(message);
+                        });
+                    }
+                },
+
+                toggleMessageBox : function () {
+                    $('#send-message .close').on('click', function () {
+                        $('#send-message').toggleClass('hide');
+                    });
+                },
+
+                sendMessage : function () {
+                    $('.send-msg').on('click', function (e) {
+                        // $(this).off();
+                        // e.preventDefault();
+                        e.stopImmediatePropagation();
+                        var msgObject = {};
+
+                        var msgCard = $(this).closest('li');
+
+                        var OTP = Math.floor(100000 + Math.random() * 900000);;
+                        var d = new Date();
+
+                        msgObject.phone = msgCard.find('.phone-num').text();
+                        msgObject.countryCode = msgCard.find('.country-code').text();
+                        msgObject.message = 'Hi. Your OTP is: ' + OTP;
+                        msgObject.full_name = msgCard.find('.name-contact span').text();
+                        msgObject.time = d.toLocaleString();
+                        
+                        
+                        $('#message-box').val(msgObject.message);
+                        $('#send-message').toggleClass('hide');
+
+                        Messages.postMessage(msgObject);
+                    });
+                },
+
+                postMessage : function (msgObject) {
+                    $('#post-msg-api').on('click', function (e) {
+                        e.stopImmediatePropagation();
+
+                        messages.push(msgObject);
+                        
+                        $('#send-message').toggleClass('hide');
+                        Messages.appendMessage(msgObject);
+                        localStorage.setItem('messages', JSON.stringify(messages))
+                    });
+                },
+
+                appendMessage : function (message) {
+                    var messageCard = 
+                    `<li class="msg-card">
+                        <div class="msg-header">
+                            <i class="fa fa-user"></i>
+                            <span>` + message.full_name + `</span>
+                        </div>
+                        <div class="msg-body">
+                            ` + message.message + `
+                        </div>
+                        <div class="msg-time">
+                            <i class="fa fa-clock-o"></i>
+                            <span>` + message.time + `</span>
+                        </div>
+                    </li>`;
+                    
+                    $('#list-messages ul').prepend(messageCard);
+                    
+                    $('#list-messages .msg-box').hide();
+                },
+
+            };
+        })();
+
+        Messages.listMessage();
+        Messages.sendMessage();
+        Messages.toggleMessageBox();
+
+
+
         var Contacts = (function () {
             var contacts = [];
 
@@ -120,7 +213,7 @@
                 },
 
                 listContacts : function () {
-                    $('.msg-box').show();
+                    $('#list-contacts .msg-box').show();
 
                     contacts = JSON.parse(localStorage.getItem('contacts'));
 
@@ -135,7 +228,8 @@
                 },
                 
                 viewContact : function () {
-                    $('.visible-contact > div:first-child').on('click', function () {
+                    $('.visible-contact > div:first-child').on('click', function (e) {
+                        e.stopImmediatePropagation();
                         $(this).closest('li').toggleClass('active');
                     });
                 },
@@ -191,11 +285,11 @@
                     
 
                     $('#list-contacts ul').prepend(contactCard);
-                    
                     Contacts.viewContact();
                     Contacts.deleteContact();
+                    Messages.sendMessage();
                     
-                    $('.msg-box').hide();
+                    $('#list-contacts .msg-box').hide();
                 },
 
                 deleteContact : function () {
@@ -218,8 +312,11 @@
 
                         if(contacts.length === 0)
                             $('#list-contacts .msg-box').show();
+                        
 
-                        contactCard.remove();
+                        contactCard.fadeOut('slow', function () {
+                            $(this).remove();
+                        });
                     });
                 }
                 
@@ -231,70 +328,6 @@
         Contacts.viewContact();
         Contacts.saveContact();
         Contacts.deleteContact();
-
-        var Messages = (function () {
-            return {
-                listMessage : function () {
-                    messages.forEach(function(message) {
-                        var d = new Date();
-                        message.time = d.toLocaleString();
-                        Messages.appendMessage(message);
-                    });
-                },
-
-
-                sendMessage : function () {
-                    $('.send-msg').one('click', function () {
-                        $(this).off();
-                        e.preventDefault();
-                        e.stopImmediatePropagation();
-                        if(formValidator.validateValues('add-contact-form')) {
-                            var contact = {
-                                firstName: $('#fname').val(),
-                                lastName: $('#lname').val(),
-                                phone: $('#cnum').val(),
-                                countryCode: '+' + $('#ccode').val(),
-                            };
-
-                            $('#add-contact input').val('');
-                            contacts.push(contact);
-                            localStorage.setItem('contacts', JSON.stringify(contacts));
-                            Contacts.showContactForm();
-                            Contacts.appendContact(contact);
-                        }
-                    });
-                },
-
-                appendMessage : function (message) {
-                    var messageCard = 
-                    `<li class="msg-card">
-                        <div class="msg-header">
-                            <i class="fa fa-user"></i>
-                            <span>` + message.full_name + `</span>
-                        </div>
-                        <div class="msg-body">
-                            ` + message.message + `
-                        </div>
-                        <div class="msg-time">
-                            <i class="fa fa-clock-o"></i>
-                            <span>` + message.time + `</span>
-                        </div>
-                    </li>`;
-                    
-
-                    $('#list-messages ul').prepend(messageCard);
-                    
-                    // Messages.viewContact();
-                    // Messages.deleteContact();
-                    
-                    $('#list-messages .msg-box').hide();
-                },
-
-            };
-        })();
-
-
-        Messages.listMessage();
 
         var formValidator = (function () {
             return {
