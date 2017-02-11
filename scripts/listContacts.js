@@ -27,7 +27,7 @@
                     
                     messages = JSON.parse(localStorage.getItem('messages'));
                     
-                    if(!messages || messages.length === 0) {
+                    if(!messages || messages === null || messages.length === 0) {
                         messages = [];
                     }
                     else {
@@ -131,7 +131,7 @@
 
                     contacts = JSON.parse(localStorage.getItem('contacts'));
 
-                    if(!contacts || contacts.length === 0) {
+                    if(!contacts || contacts === null || contacts.length === 0) {
                         contacts = [];
                     }
                     else {
