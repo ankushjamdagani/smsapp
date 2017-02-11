@@ -1,89 +1,3 @@
-// var contactsss = 
-//     [
-//         {
-//             firstName: 'Ankush',
-//             lastName: 'Jamdagani',
-//             phone: '9466462396',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Hemant',
-//             lastName: 'Yadav',
-//             phone: '9671162385',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Rahul',
-//             lastName: 'Verma',
-//             phone: '7206016012',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Naveen',
-//             lastName: 'Jamdagani',
-//             phone: '7027024333',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Ankush',
-//             lastName: 'Jamdagani',
-//             phone: '9466462396',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Hemant',
-//             lastName: 'Yadav',
-//             phone: '9671162385',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Rahul',
-//             lastName: 'Verma',
-//             phone: '7206016012',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Naveen',
-//             lastName: 'Jamdagani',
-//             phone: '7027024333',
-//             countryCode: '+91'
-//         },{
-//             firstName: 'Ankush',
-//             lastName: 'Jamdagani',
-//             phone: '9466462396',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Hemant',
-//             lastName: 'Yadav',
-//             phone: '9671162385',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Rahul',
-//             lastName: 'Verma',
-//             phone: '7206016012',
-//             countryCode: '+91'
-//         },
-//         {
-//             firstName: 'Naveen',
-//             lastName: 'Jamdagani',
-//             phone: '7027024333',
-//             countryCode: '+91'
-//         }
-//     ];
-
-    // var messages = 
-    // [
-    //     {
-    //         phone: '9466462396',
-    //         countryCode: '+91',
-    //         message: 'This is some demo text',
-    //         full_name: 'Hemant Yadav',
-    //         time: 44443,
-    //     },
-    // ];
-
     $(document).ready(function () {
 
         var _ = (function () {
@@ -113,7 +27,7 @@
                     
                     messages = JSON.parse(localStorage.getItem('messages'));
                     
-                    if(!messages || messages == null || messages.length === 0) {
+                    if(!messages || messages.length === 0) {
                         messages = [];
                     }
                     else {
@@ -217,7 +131,7 @@
 
                     contacts = JSON.parse(localStorage.getItem('contacts'));
 
-                    if(contacts.length === 0 || !contacts || contacts == null) {
+                    if(!contacts || contacts.length === 0) {
                         contacts = [];
                     }
                     else {
